@@ -50,6 +50,8 @@ import ImageOverlay from './components/ImageOverlay';
 import DataDrivenCircleColors from './components/DataDrivenCircleColors';
 import ChoroplethLayerByZoomLevel from './components/ChoroplethLayerByZoomLevel';
 
+import CustomIconCrash from './components/CustomIconCrash';
+
 const styles = StyleSheet.create({
   noPermissionsText: {
     fontSize: 18,
@@ -193,7 +195,15 @@ class App extends React.Component {
     );
   }
 
-  render () {
+  render() {
+    return (
+      <View style={sheet.matchParent}>
+        <CustomIconCrash key={'Key'} label={'Custom Icon Crash'} onDismissExample={this.onCloseExample} />
+      </View>
+    )
+  }
+
+  renderOld() {
     if (IS_ANDROID && !this.state.isAndroidPermissionGranted) {
       if (this.state.isFetchingAndroidPermission) {
         return null;
